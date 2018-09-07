@@ -27,12 +27,16 @@ public class Ball {
 	void move() {
 		if (x + xa < 0)
 			xa = 1;
-		if (x + xa > game.getWidth() - 30) // -1 moves ball left after hitting the wall
+		if (x + xa > game.getWidth() - DIAMETER) // -1 moves ball left after hitting the wall
 			xa = -1;
 		if (y + ya < 0)
 			ya = 1;
-		if (y + ya > game.getHeight() - 30) // -1 moves ball up after hitting the wall
+		if (y + ya > game.getHeight() - DIAMETER) // -1 moves ball up after hitting the wall
+			game.gameOver();
+		if (collision()) {
 			ya = -1;
+			y = game.racquet.getTopY() - DIAMETER;
+		}
 
 		x = x + xa;
 		y = y + ya;

@@ -1,11 +1,12 @@
 package game;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 /*
  * Alvin Quijano 
- * Version: 0.4
+ * Version: 0.5
  * Description: This is the Racquet class file 
  */
 public class Racquet {
@@ -24,7 +25,7 @@ public class Racquet {
 		this.game = game;
 	}
 	
-	// public methods 
+	// PUBLIC METHODS 
 	
 	// This is the move method, it moves the racquet
 	public void move() {
@@ -51,5 +52,14 @@ public class Racquet {
 			xa = 1;
 		}
 
+	}
+	
+	// Defines the position of the rectangle on the game board 
+	public Rectangle getBounds() {
+		return new Rectangle(x, Y, WIDTH, HEIGHT);
+	}
+	
+	public int getTopY() {
+		return Y;
 	}
 }
